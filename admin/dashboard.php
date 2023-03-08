@@ -1,12 +1,12 @@
 <?php
 
-include( 'includes/database.php' );
-include( 'includes/config.php' );
-include( 'includes/functions.php' );
+include('includes/database.php');
+include('includes/config.php');
+include('includes/functions.php');
 
 secure();
 
-include( 'includes/header.php' );
+include('includes/header.php');
 
 ?>
 
@@ -17,8 +17,8 @@ include( 'includes/header.php' );
     </a>
   </li>
   <li>
-    <a href="users.php">
-      Manage Users
+    <a href="skills.php">
+      Manage Skills
     </a>
   </li>
   <li>
@@ -30,6 +30,6 @@ include( 'includes/header.php' );
 
 <?php
 
-include( 'includes/footer.php' );
+include('includes/footer.php');
 
 ?>
