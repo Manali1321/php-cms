@@ -12,7 +12,7 @@ include('includes/header.php');
 
 <ul id="dashboard">
   <li>
-    <a href="event_details.php">
+    <a href="event.php">
       Manage Event Details
     </a>
   </li>

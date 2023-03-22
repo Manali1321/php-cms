@@ -25,7 +25,7 @@ include('admin/includes/functions.php');
     <h1>BashBliss,,,</h1>
     <nav>
       <a href="/php-cms/">Home</a>
-      <a href="/php-cms/admin/event_details.php/">Event</a>
+      <a href="/php-cms/admin/event.php/">Event</a>
       <a href="/php-cms/admin/categories.php/">Category</a>
     </nav>
   </header>
@@ -42,6 +42,17 @@ include('admin/includes/functions.php');
     <?php echo mysqli_num_rows($result); ?> Categories in the database!
   </p>
 
+  <?php
+
+  $queryEvent = 'SELECT *
+  FROM event_details';
+  $resultEvent = mysqli_query($connect, $queryEvent);
+
+  ?>
+
+  <p>There are
+    <?php echo mysqli_num_rows($resultEvent); ?> Event in the database!
+  </p>
   <hr>
 
   <?php while ($record = mysqli_fetch_assoc($result)): ?>

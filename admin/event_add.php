@@ -7,25 +7,25 @@ include('includes/functions.php');
 secure();
 
 // Check to see if the form has been submitted
-if (isset($_POST['name'])) {
+if (isset($_POST['category_id'])) {
 
   // Confirms required form data is complete
-  if ($_POST['name'] and $_POST['image']) {
+  if ($_POST['category_id'] and $_POST['details']) {
 
-    $query = 'INSERT INTO categories (
-        name,
-        image,
+    $query = 'INSERT INTO event_details (
+        category_id,
+        details
       ) VALUES (
-         "' . mysqli_real_escape_string($connect, $_POST['name']) . '",
-         "' . mysqli_real_escape_string($connect, $_POST['image']) . '"
+         "' . mysqli_real_escape_string($connect, $_POST['category_id']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['details']) . '"
       )';
     mysqli_query($connect, $query);
 
-    set_message('Category has been added');
+    set_message('Event has been added');
 
   }
 
-  header('Location: categories.php');
+  header('Location: event.php');
   die();
 
 }
@@ -34,51 +34,25 @@ include('includes/header.php');
 
 ?>
 
-<h2>Add User</h2>
+<h2>Add Event</h2>
 
 <form method="post">
 
-  <label for="first">First Name:</label>
-  <input type="text" name="first" id="first">
+  <label for="category_id">Category Id:</label>
+  <input type="number" name="category_id" id="category_id">
 
   <br>
 
-  <label for="last">Last Name:</label>
-  <input type="text" name="last" id="last">
+  <label for="details">Details:</label>
+  <input type="text" name="details" id="details">
 
   <br>
 
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email">
-
-  <br>
-
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-
-  <br>
-
-  <label for="active">Active:</label>
-  <?php
-
-  $values = array('Yes', 'No');
-
-  echo '<select name="active" id="active">';
-  foreach ($values as $key => $value) {
-    echo '<option value="' . $value . '"';
-    echo '>' . $value . '</option>';
-  }
-  echo '</select>';
-
-  ?>
-
-  <br>
-
-  <input type="submit" value="Add User">
+  <input type="submit" value="Add Event">
 
 </form>
 
-<p><a href="users.php"><i class="fas fa-arrow-circle-left"></i> Return to User List</a></p>
+<p><a href="event.php"><i class="fas fa-arrow-circle-left"></i> Return to Event List</a></p>
 
 
 <?php
