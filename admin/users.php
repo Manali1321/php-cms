@@ -6,23 +6,18 @@ include('includes/functions.php');
 
 secure();
 
-if (isset($_POST['delete'])) {
-  if (isset($_POST['delete'])) {
+if (isset($_GET['delete'])) {
 
-    $query = 'DELETE FROM users
-      WHERE id = ' . $_POST['delete'] . '
+  $query = 'DELETE FROM users
+      WHERE id = ' . $_GET['delete'] . '
       LIMIT 1';
-    mysqli_query($connect, $query);
+  mysqli_query($connect, $query);
 
-    set_message('User has been deleted');
+  set_message('User has been deleted');
 
-    header('Location: users.php');
-    die();
+  header('Location: users.php');
+  die();
 
-  } else {
-    set_message('No update');
-
-  }
 }
 
 include('includes/header.php');
@@ -59,11 +54,8 @@ $result = mysqli_query($connect, $query);
       <td align="center"><a href="users_edit.php?id=<?php echo $record['id']; ?>">Edit</a></td>
       <td align="center">
         <?php if ($_SESSION['id'] != $record['id']): ?>
-          <form method="POST" action="users.php">
-            <input type="hidden" name="delete_id" value="<?php echo $record['id']; ?>">
-            <input type="submit" name="delete_confirm" value="delete"
-              onclick="return confirm('Are you sure you want to delete this user?');">
-          </form>
+          <a href="users.php?delete=<?php echo $record['id']; ?>"
+            onclick="javascript:confirm('Are you sure you want to delete this user?');">Delete</a>
         <?php endif; ?>
       </td>
       <td align="center">

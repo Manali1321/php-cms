@@ -42,11 +42,6 @@ include('includes/header.php');
 
   <br>
 
-  <label for="image">Image:</label>
-  <input type="text" name="image" id="image">
-
-  <br>
-
   <input type="submit" value="Add Category">
 
 </form>

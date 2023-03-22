@@ -16,7 +16,6 @@ include('admin/includes/functions.php');
   <title>BashBliss</title>
 
   <link href="styles.css" type="text/css" rel="stylesheet">
-
   <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
 
 </head>

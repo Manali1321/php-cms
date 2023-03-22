@@ -43,11 +43,9 @@ $result = mysqli_query($connect, $query);
   <?php while ($record = mysqli_fetch_assoc($result)): ?>
     <tr>
       <td align="center">
-
+        <img
+          src="image.php?type=category&category_id=<?php echo $record['category_id']; ?>&width=300&height=300&format=inside">
       </td>
-      <!-- <td align="center">
-        <?php echo $record['category_id']; ?>
-      </td> -->
       <td align="left">
         <?php echo htmlentities($record['name']); ?>
       </td>
