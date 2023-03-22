@@ -6,37 +6,26 @@ include('includes/functions.php');
 
 secure();
 
-if (isset($_POST['first'])) {
+// Check to see if the form has been submitted
+if (isset($_POST['name'])) {
 
-  if ($_POST['first'] and $_POST['last'] and $_POST['email'] and $_POST['password']) {
+  // Confirms required form data is complete
+  if ($_POST['name'] and $_POST['image']) {
 
-    $query = 'INSERT INTO users (
-        first,
-        last,
-        email,
-        password,
-        active
+    $query = 'INSERT INTO categories (
+        name,
+        image,
       ) VALUES (
-        "' . mysqli_real_escape_string($connect, $_POST['first']) . '",
-        "' . mysqli_real_escape_string($connect, $_POST['last']) . '",
-        "' . mysqli_real_escape_string($connect, $_POST['email']) . '",
-        "' . md5($_POST['password']) . '",
-        "' . $_POST['active'] . '"
+         "' . mysqli_real_escape_string($connect, $_POST['name']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['image']) . '"
       )';
     mysqli_query($connect, $query);
 
-    set_message('User has been added');
+    set_message('Category has been added');
 
   }
 
-  /*
-  // Example of debugging a query
-  print_r($_POST);
-  print_r($query);
-  die();
-  */
-
-  header('Location: users.php');
+  header('Location: categories.php');
   die();
 
 }

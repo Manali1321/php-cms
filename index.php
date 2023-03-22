@@ -23,10 +23,10 @@ include('admin/includes/functions.php');
 
 <body>
   <header>
-    <h1>BashBliss</h1>
+    <h1>BashBliss,,,</h1>
     <nav>
       <a href="/php-cms/">Home</a>
-      <a href="/php-cms/admin/event.php/">Event</a>
+      <a href="/php-cms/admin/event_details.php/">Event</a>
       <a href="/php-cms/admin/categories.php/">Category</a>
     </nav>
   </header>
@@ -34,14 +34,13 @@ include('admin/includes/functions.php');
   <?php
 
   $query = 'SELECT *
-    FROM projects
-    ORDER BY date DESC';
+    FROM categories';
   $result = mysqli_query($connect, $query);
 
   ?>
 
   <p>There are
-    <?php echo mysqli_num_rows($result); ?> projects in the database!
+    <?php echo mysqli_num_rows($result); ?> Categories in the database!
   </p>
 
   <hr>
@@ -63,7 +62,7 @@ include('admin/includes/functions.php');
 
         <p>Or by streaming the image through the image.php file:</p>
 
-        <img src="admin/image.php?type=project&id=<?php echo $record['id']; ?>&width=100&height=100">
+        <img src="admin/image.php?type=project&id=<?php echo $record['category_id']; ?>&width=100&height=100">
 
       <?php else: ?>
 
