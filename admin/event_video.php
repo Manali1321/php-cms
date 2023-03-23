@@ -107,7 +107,7 @@ include 'includes/wideimage/WideImage.php';
   <p><img src="data:video/mp4;base64,<?php echo base64_encode($data); ?>" width="200" height="200"></p>
   <p><a href="event_video.php?event_id=<?php echo $_GET['event_id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete
       this
-      Event</a></p>
+      Video</a></p>
 
 <?php endif; ?>
 

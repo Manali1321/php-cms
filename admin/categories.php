@@ -54,7 +54,7 @@ $result = mysqli_query($connect, $query);
       <td align="center"><a href="categories_edit.php?category_id=<?php echo $record['category_id']; ?>">Edit</i></a></td>
       <td align="center">
         <a href="categories.php?delete=<?php echo $record['category_id']; ?>"
-          onclick="javascript:confirm('Are you sure you want to delete <?php echo $record['name']; ?> categories?');">Delete</i></a>
+          onclick="javascript:return confirm('Are you sure you want to delete <?php echo $record['name']; ?> categories?');">Delete</i></a>
       </td>
     </tr>
   <?php endwhile; ?>

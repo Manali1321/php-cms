@@ -57,7 +57,7 @@ $result = mysqli_query($connect, $query);
       </td>
       <td align="center"><a href="event_photo.php?event_id=<?php echo $record['event_id']; ?>">Photo Details</a>
       </td>
-      <td align="center"><a href="event_photo.php?event_id=<?php echo $record['event_id']; ?>">Video Details</a>
+      <td align="center"><a href="event_video.php?event_id=<?php echo $record['event_id']; ?>">Video Details</a>
       </td>
       <td align="center"><a href="event_edit.php?event_id=<?php echo $record['event_id']; ?>">Edit</i></a></td>
       <td align="center">
