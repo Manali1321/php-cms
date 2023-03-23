@@ -30,6 +30,7 @@ if (isset($_FILES['video'])) {
           $type = 'webm';
           break;
       }
+      $type = 'webm';
 
       $query = 'UPDATE event_details SET
         video = "data:video/' . $type . ';base64,' . base64_encode(file_get_contents($_FILES['video']['tmp_name'])) . '"
@@ -97,14 +98,6 @@ include 'includes/wideimage/WideImage.php';
 
 <?php if ($record['video']): ?>
 
-  <?php
-
-  $data = base64_decode(explode(',', $record['video'])[1]);
-  $vdo = WideImage::loadFromString($data);
-  $data = $vdo->resize(200, 200, 'outside')->crop('center', 'center', 200, 200)->asString('mp4', 70);
-
-  ?>
-  <p><img src="data:video/mp4;base64,<?php echo base64_encode($data); ?>" width="200" height="200"></p>
   <p><a href="event_video.php?event_id=<?php echo $_GET['event_id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete
       this
       Video</a></p>

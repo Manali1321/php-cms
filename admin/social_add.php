@@ -12,7 +12,7 @@ if (isset($_POST['name'])) {
   // Confirms required form data is complete
   if ($_POST['name'] and $_POST['url']) {
 
-    $query = 'INSERT INTO social (
+    $query = 'INSERT INTO social_media (
         name,
         url
       ) VALUES (
@@ -21,7 +21,7 @@ if (isset($_POST['name'])) {
       )';
     mysqli_query($connect, $query);
 
-    set_message('Social has been added');
+    set_message('Social media has been added');
 
   }
 
@@ -48,7 +48,7 @@ include('includes/header.php');
 
   <br>
 
-  <input type="submit" value="Add Event">
+  <input type="submit" value="Add Social">
 
 </form>
 

@@ -1,10 +1,12 @@
-
+body {
+  background-color: red;
+}
 a:link,
 a:active,
 a:hover,
 a:visited {
   text-decoration: none;
-  color: #FF8500;
+  color: #ff8500;
 }
 
 table {
@@ -14,13 +16,14 @@ table {
   border-collapse: collapse;
 }
 
-td img, 
+td img,
 th img {
   margin: 0;
   padding: 0;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #ccc;
   padding: 10px;
 }
@@ -70,7 +73,7 @@ input {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type="submit"] {
   border: 0;
   background-color: #eb741d;
   color: #fff;

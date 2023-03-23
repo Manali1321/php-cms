@@ -13,7 +13,7 @@ if (isset($_GET['delete'])) {
     LIMIT 1';
   mysqli_query($connect, $query);
 
-  set_message('Social details has been deleted');
+  set_message('Social media details has been deleted');
 
   header('Location: social.php');
   die();
@@ -34,7 +34,7 @@ $result = mysqli_query($connect, $query);
   <tr>
     <!-- <th align="center">EventId</th> -->
     <th align="center">Name</th>
-    <th align="center">Icon</th>
+    <th align="center">Logo</th>
     <th align="center">Link</th>
   </tr>
   <?php while ($record = mysqli_fetch_assoc($result)): ?>
@@ -53,7 +53,7 @@ $result = mysqli_query($connect, $query);
       <td align="center"><a href="social_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
         <a href="social.php?delete=<?php echo $record['id']; ?>"
-          onclick="javascript:return confirm('Are you sure you want to delete <?php echo $record['id']; ?> social details?');">Delete</i></a>
+          onclick="javascript:return confirm('Are you sure you want to delete <?php echo $record['name']; ?> social details?');">Delete</i></a>
       </td>
     </tr>
   <?php endwhile; ?>

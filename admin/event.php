@@ -50,7 +50,9 @@ $result = mysqli_query($connect, $query);
         <img src="image.php?type=event&event_id=<?php echo $record['event_id']; ?>&width=300&height=300&format=inside">
       </td>
       <td align="center">
-        <img src="image.php?type=video&event_id=<?php echo $record['event_id']; ?>&width=300&height=300&format=inside">
+        <video controls width="250">
+          <source type="video/webm" src="<?php echo $record['video']; ?>">
+        </video>
       </td>
       <td align="left">
         <?php echo htmlentities($record['details']); ?>

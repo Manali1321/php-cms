@@ -40,6 +40,19 @@ switch ($_GET['type']) {
       $record['image'] = $camera;
 
     break;
+  case 'logo':
+
+    $query = 'SELECT image 
+          FROM social_media
+          WHERE id = ' . $_GET['id'] . '
+          LIMIT 1';
+    $result = mysqli_query($connect, $query);
+    $record = mysqli_fetch_assoc($result);
+
+    if (!$record['image'])
+      $record['image'] = $camera;
+
+    break;
 
 }
 
