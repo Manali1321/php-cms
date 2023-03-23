@@ -35,7 +35,7 @@ $result = mysqli_query($connect, $query);
     <!-- <th align="center">EventId</th> -->
     <th align="center">Name</th>
     <th align="center">Logo</th>
-    <th align="center">Link</th>
+    <th align="center">Link</th>gg
   </tr>
   <?php while ($record = mysqli_fetch_assoc($result)): ?>
     <tr>

@@ -16,14 +16,14 @@ include('admin/includes/functions.php');
   <title>BashBliss</title>
 
   <link href="styles.css" type="text/css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
 
 </head>
 
 <body>
   <header>
-    <h1>BashBliss,,,</h1>
+    <h1>BashBliss</h1>
     <nav>
       <a href="/php-cms/">Home</a>
       <a href="/php-cms/admin/event.php/">Event</a>

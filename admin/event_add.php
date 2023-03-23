@@ -30,6 +30,9 @@ if (isset($_POST['category_id'])) {
 
 }
 
+// Retrieve the list of categories from the database
+$category_query = 'SELECT category_id, name FROM categories';
+$category_result = mysqli_query($connect, $category_query);
 include('includes/header.php');
 
 ?>
@@ -38,8 +41,13 @@ include('includes/header.php');
 
 <form method="post">
 
-  <label for="category_id">Category Id:</label>
-  <input type="number" name="category_id" id="category_id">
+
+  <label for="category_id">Category:</label>
+  <select name="category_id" id="category_id">
+    <?php while ($row = mysqli_fetch_assoc($category_result)) { ?>
+      <option value="<?php echo $row['category_id']; ?>"><?php echo $row['name']; ?></option>
+    <?php } ?>
+  </select>
 
   <br>
 
