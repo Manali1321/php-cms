@@ -37,7 +37,6 @@ $result = mysqli_query($connect, $query);
     <th align="center">Image</th>
     <th align="center">Video</th>
     <th align="center">Details</th>
-
   </tr>
   <?php while ($record = mysqli_fetch_assoc($result)): ?>
     <tr>
@@ -51,12 +50,14 @@ $result = mysqli_query($connect, $query);
         <img src="image.php?type=event&event_id=<?php echo $record['event_id']; ?>&width=300&height=300&format=inside">
       </td>
       <td align="center">
-        <img src="image.php?type=event&event_id=<?php echo $record['event_id']; ?>&width=300&height=300&format=inside">
+        <img src="image.php?type=video&event_id=<?php echo $record['event_id']; ?>&width=300&height=300&format=inside">
       </td>
       <td align="left">
         <?php echo htmlentities($record['details']); ?>
       </td>
-      <td align="center"><a href="event_photo.php?event_id=<?php echo $record['event_id']; ?>">Photo</i></a>
+      <td align="center"><a href="event_photo.php?event_id=<?php echo $record['event_id']; ?>">Photo Details</a>
+      </td>
+      <td align="center"><a href="event_photo.php?event_id=<?php echo $record['event_id']; ?>">Video Details</a>
       </td>
       <td align="center"><a href="event_edit.php?event_id=<?php echo $record['event_id']; ?>">Edit</i></a></td>
       <td align="center">

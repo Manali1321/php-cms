@@ -13,27 +13,26 @@ if (!isset($_GET['event_id'])) {
 
 }
 
-if (isset($_FILES['image'])) {
+if (isset($_FILES['video'])) {
 
-  if (isset($_FILES['image'])) {
+  if (isset($_FILES['video'])) {
 
-    if ($_FILES['image']['error'] == 0) {
+    if ($_FILES['video']['error'] == 0) {
 
-      switch ($_FILES['image']['type']) {
-        case 'image/png':
-          $type = 'png';
+      switch ($_FILES['video']['type']) {
+        case 'video/mp4':
+          $type = 'mp4';
           break;
-        case 'image/jpg':
-        case 'image/jpeg':
-          $type = 'jpeg';
+        case 'video/ogg':
+          $type = 'ogg';
           break;
-        case 'image/gif':
-          $type = 'gif';
+        case 'video/webm':
+          $type = 'webm';
           break;
       }
 
       $query = 'UPDATE event_details SET
-        image = "data:image/' . $type . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name'])) . '"
+        video = "data:video/' . $type . ';base64,' . base64_encode(file_get_contents($_FILES['video']['tmp_name'])) . '"
         WHERE event_id = ' . $_GET['event_id'] . '
         LIMIT 1';
       mysqli_query($connect, $query);
@@ -42,7 +41,7 @@ if (isset($_FILES['image'])) {
 
   }
 
-  set_message('Event image has been updated');
+  set_message('Event video has been updated');
 
   header('Location: event.php');
   die();
@@ -55,12 +54,12 @@ if (isset($_GET['event_id'])) {
   if (isset($_GET['delete'])) {
 
     $query = 'UPDATE event_details SET
-      image = ""
+      video = ""
       WHERE event_id = ' . $_GET['event_id'] . '
       LIMIT 1';
     $result = mysqli_query($connect, $query);
 
-    set_message('Event image has been deleted');
+    set_message('Event video has been deleted');
 
     header('Location: event.php');
     die();
@@ -96,17 +95,17 @@ include 'includes/wideimage/WideImage.php';
   Note: For best results, images should be approximately 800 x 800 pixels.
 </p>
 
-<?php if ($record['image']): ?>
+<?php if ($record['video']): ?>
 
   <?php
 
-  $data = base64_decode(explode(',', $record['image'])[1]);
-  $img = WideImage::loadFromString($data);
-  $data = $img->resize(200, 200, 'outside')->crop('center', 'center', 200, 200)->asString('jpg', 70);
+  $data = base64_decode(explode(',', $record['video'])[1]);
+  $vdo = WideImage::loadFromString($data);
+  $data = $vdo->resize(200, 200, 'outside')->crop('center', 'center', 200, 200)->asString('mp4', 70);
 
   ?>
-  <p><img src="data:image/jpg;base64,<?php echo base64_encode($data); ?>" width="200" height="200"></p>
-  <p><a href="event_photo.php?event_id=<?php echo $_GET['event_id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete
+  <p><img src="data:video/mp4;base64,<?php echo base64_encode($data); ?>" width="200" height="200"></p>
+  <p><a href="event_video.php?event_id=<?php echo $_GET['event_id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete
       this
       Event</a></p>
 
@@ -114,12 +113,12 @@ include 'includes/wideimage/WideImage.php';
 
 <form method="post" enctype="multipart/form-data">
 
-  <label for="image">Image:</label>
-  <input type="file" name="image" id="image">
+  <label for="video">Video:</label>
+  <input type="file" name="video" id="video">
 
   <br>
 
-  <input type="submit" value="Save image">
+  <input type="submit" value="Save video">
 
 </form>
 

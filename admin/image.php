@@ -27,6 +27,19 @@ switch ($_GET['type']) {
       $record['image'] = $camera;
 
     break;
+  case 'event':
+
+    $query = 'SELECT image 
+        FROM event_details
+        WHERE event_id = ' . $_GET['event_id'] . '
+        LIMIT 1';
+    $result = mysqli_query($connect, $query);
+    $record = mysqli_fetch_assoc($result);
+
+    if (!$record['image'])
+      $record['image'] = $camera;
+
+    break;
 
 }
 
