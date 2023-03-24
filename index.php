@@ -25,67 +25,63 @@ include('admin/includes/functions.php');
   <header>
     <h1>BashBliss</h1>
     <nav>
-      <a href="/php-cms/">Home</a>
-      <a href="/php-cms/admin/event.php/">Event</a>
-      <a href="/php-cms/admin/categories.php/">Category</a>
+      <ul>
+        <li>
+          <a href="/php-cms/">Home</a>
+        </li>
+        <li>
+          <a href="/php-cms/event.php">Event</a>
+        </li>
+        <li>
+          <a href="/php-cms/about.php">About us</a>
+        </li>
+      </ul>
     </nav>
   </header>
 
-  <?php
+  <main>
+    <?php
 
-  $query = 'SELECT *
-    FROM categories';
-  $result = mysqli_query($connect, $query);
+    $query = 'SELECT * FROM categories';
+    $result = mysqli_query($connect, $query);
 
-  ?>
+    ?>
+    <div class="intro">
+      <p>“Welcome to our event management system! We are here to help you make your special day even more
+        memorable. Our
+        team of experts will work with you to create a unique and personalized experience that reflects your style and
+        personality. Whether it’s a birthday party, anniversary celebration or date night, we’ve got you covered.
+        Contact
+        us today to start planning your dream event!”</p>
+    </div>
+    <section>
+      <h2>Events</h2>
+      <div id='category'>
+        <?php while ($record = mysqli_fetch_assoc($result)): ?>
 
-  <p>There are
-    <?php echo mysqli_num_rows($result); ?> Categories in the database!
-  </p>
+          <div id='category-item'>
+            <img src="
+            <?php echo $record['image']; ?>
+          " alt="i am image" width="300" height="350">
+            <h3>
+              <?php echo $record['name'] ?>
+            </h3>
+          </div>
 
-  <?php
-
-  $queryEvent = 'SELECT *
-  FROM event_details';
-  $resultEvent = mysqli_query($connect, $queryEvent);
-
-  ?>
-
-  <p>There are
-    <?php echo mysqli_num_rows($resultEvent); ?> Event in the database!
-  </p>
-  <hr>
-
-  <?php while ($record = mysqli_fetch_assoc($result)): ?>
-
-    <div>
-
-      <h2>
-        <?php echo $record['title']; ?>
-      </h2>
-      <?php echo $record['content']; ?>
-
-      <?php if ($record['photo']): ?>
-
-        <p>The image can be inserted using a base64 image:</p>
-
-        <img src="<?php echo $record['photo']; ?>">
-
-        <p>Or by streaming the image through the image.php file:</p>
-
-        <img src="admin/image.php?type=project&id=<?php echo $record['category_id']; ?>&width=100&height=100">
-
-      <?php else: ?>
-
-        <p>This record does not have an image!</p>
-
-      <?php endif; ?>
-
+        <?php endwhile; ?>
+      </div>
+    </section>
+    <div class="intro">
+      <p>“We also offer free consultation services for customer events so that we can help you plan your
+        dream event
+        exactly as you want it.”</p>
     </div>
 
-    <hr>
 
-  <?php endwhile; ?>
+  </main>
+  <footer>
+    <p>manaliPatel, March 2023</p>
+  </footer>
 
 </body>
 

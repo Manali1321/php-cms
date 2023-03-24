@@ -23,14 +23,10 @@ if (isset($_FILES['video'])) {
         case 'video/mp4':
           $type = 'mp4';
           break;
-        case 'video/ogg':
-          $type = 'ogg';
-          break;
         case 'video/webm':
           $type = 'webm';
           break;
       }
-      $type = 'webm';
 
       $query = 'UPDATE event_details SET
         video = "data:video/' . $type . ';base64,' . base64_encode(file_get_contents($_FILES['video']['tmp_name'])) . '"
