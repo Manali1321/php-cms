@@ -12,7 +12,8 @@ h1 {
   font-size: 40px;
 }
 
-h2 {
+h2,
+legend {
   font-size: 28px;
   font-weight: 500;
 }
@@ -52,7 +53,6 @@ header {
 #category {
   display: flex;
   flex-wrap: wrap;
-  padding: 3rem 0;
 }
 
 #category-item {
@@ -95,7 +95,9 @@ section,
 header {
   padding: 2rem 15rem;
 }
-
+.arrange {
+  padding-top: 2rem;
+}
 .intro {
   padding: 10rem 30rem;
   word-spacing: 10px;
@@ -107,6 +109,24 @@ header {
   padding: 15px;
 }
 
+.btn {
+  background-color: rgb(111, 63, 96);
+  box-shadow: 7px 7px 15px rgb(104, 119, 89);
+  padding: 15px 32px;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  margin: 0 auto;
+  font-weight: 600;
+  width: fit-content;
+  margin-bottom: 5rem;
+}
+.btn:hover {
+  background-color: rgb(104, 119, 89);
+}
+a {
+  text-decoration: none;
+}
 footer {
   position: relative;
   left: 0;
@@ -121,7 +141,61 @@ footer {
 footer p {
   margin: 0 !important;
 }
+/* **************** About page ****************** */
+.field {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 22px;
+  font-weight: 500;
+  border: rgb(111 63 96) 5px solid;
+  border-radius: 5px;
+}
+fieldset {
+  padding: 30px;
+}
+/* ******************** Event Page ************************** */
+#event_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
 
+#event_container h3 {
+  font-size: 28px;
+  text-align: center;
+}
+
+#event_container img {
+  width: 300px;
+  height: 350px;
+  float: left;
+  margin-right: 20px;
+}
+
+#detail {
+  flex: 1;
+  margin-top: 20px;
+}
+
+#detail p {
+  font-size: 16px;
+  text-align: justify;
+}
+
+#detail video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+/* *******************  Media ********************** */
 @media screen and (max-width: 768px) {
   #category {
     flex-direction: row;

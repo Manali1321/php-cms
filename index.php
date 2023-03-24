@@ -5,6 +5,7 @@ include('admin/includes/config.php');
 include('admin/includes/functions.php');
 
 ?>
+
 <!doctype html>
 <html>
 
@@ -17,7 +18,7 @@ include('admin/includes/functions.php');
 
   <link href="styles.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+
 
 </head>
 
@@ -56,18 +57,18 @@ include('admin/includes/functions.php');
     </div>
     <section>
       <h2>Events</h2>
-      <div id='category'>
+      <div id='category' class="arrange">
         <?php while ($record = mysqli_fetch_assoc($result)): ?>
-
-          <div id='category-item'>
-            <img src="
+          <a href="/php-cms/event.php?name=<?php echo urlencode($record['name']); ?>">
+            <div id='category-item'>
+              <img src="
             <?php echo $record['image']; ?>
           " alt="i am image" width="300" height="350">
-            <h3>
-              <?php echo $record['name'] ?>
-            </h3>
-          </div>
-
+              <h3>
+                <?php echo $record['name'] ?>
+              </h3>
+            </div>
+          </a>
         <?php endwhile; ?>
       </div>
     </section>
@@ -76,13 +77,14 @@ include('admin/includes/functions.php');
         dream event
         exactly as you want it.”</p>
     </div>
-
+    <a href="/php-cms/about.php"><button class="btn">Consult With Our Expert<button></a>
 
   </main>
   <footer>
     <p>manaliPatel, March 2023</p>
   </footer>
-
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+  <script src="./index.js" async defer></script>
 </body>
 
 </html>
