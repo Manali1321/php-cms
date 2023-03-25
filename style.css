@@ -54,6 +54,9 @@ header {
   padding: 3rem 0;
   justify-content: space-evenly;
 }
+#category-item {
+  position: relative;
+}
 
 #category-item img {
   min-width: 370px;
