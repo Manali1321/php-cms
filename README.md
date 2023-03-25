@@ -8,7 +8,7 @@ A few notes regarding the CMS:
 - Security is very basic
 - Image and uploading is done through a separate page using a basic servers-side script
 - Images and video are stored in the database as a base64 string
-- Image and video resizing is done through [WideImage](http://wideimage.sourceforge.net/)
+- Image resizing is done through [WideImage](http://wideimage.sourceforge.net/)
 
 Frontend:
 - Responsive website that displays event categories and details dynamically.
