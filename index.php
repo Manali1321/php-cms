@@ -23,7 +23,7 @@ include('admin/includes/functions.php');
 </head>
 
 <body>
-  <header>
+  <header class="arrange">
     <h1>BashBliss</h1>
     <nav>
       <ul>
@@ -47,7 +47,7 @@ include('admin/includes/functions.php');
     $result = mysqli_query($connect, $query);
 
     ?>
-    <div class="intro">
+    <div class="intro arrange">
       <p>“Welcome to our event management system! We are here to help you make your special day even more
         memorable. Our
         team of experts will work with you to create a unique and personalized experience that reflects your style and
@@ -55,15 +55,15 @@ include('admin/includes/functions.php');
         Contact
         us today to start planning your dream event!”</p>
     </div>
-    <section>
+    <section class="arrange">
       <h2>Events</h2>
-      <div id='category' class="arrange">
+      <div id='category'>
         <?php while ($record = mysqli_fetch_assoc($result)): ?>
           <a href="/php-cms/event.php?name=<?php echo urlencode($record['name']); ?>">
             <div id='category-item'>
               <img src="
             <?php echo $record['image']; ?>
-          " alt="i am image" width="300" height="350">
+          " alt="i am image">
               <h3>
                 <?php echo $record['name'] ?>
               </h3>
@@ -72,7 +72,7 @@ include('admin/includes/functions.php');
         <?php endwhile; ?>
       </div>
     </section>
-    <div class="intro">
+    <div class="intro arrange">
       <p>“We also offer free consultation services for customer events so that we can help you plan your
         dream event
         exactly as you want it.”</p>

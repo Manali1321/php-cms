@@ -32,7 +32,6 @@ $result = mysqli_query($connect, $query);
 <h2>Manage Social Details</h2>
 <table>
   <tr>
-    <!-- <th align="center">EventId</th> -->
     <th align="center">Name</th>
     <th align="center">Logo</th>
     <th align="center">Link</th>gg

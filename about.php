@@ -22,7 +22,7 @@ include('admin/includes/functions.php');
 </head>
 
 <body>
-  <header>
+  <header class="arrange">
     <h1>BashBliss</h1>
     <nav>
       <ul>
@@ -40,12 +40,7 @@ include('admin/includes/functions.php');
   </header>
 
   <main>
-    <?php
-    $category_query = 'SELECT category_id, name FROM categories';
-    $category_result = mysqli_query($connect, $category_query);
-
-    ?>
-    <div class="intro">
+    <div class="intro arrange">
       <p>Are you ready to create an unforgettable event that your guests will be talking about for years to
         come? Whether
         you're planning a birthday party, anniversary celebration, or festival-themed event, our team of experienced
@@ -55,7 +50,12 @@ include('admin/includes/functions.php');
         executing every detail with precision and care. So why wait? Fill out our form today and let's get started on
         making your event vision a reality!</p>
     </div>
-    <section id="form">
+    <section>
+      <?php
+      $category_query = 'SELECT category_id, name FROM categories';
+      $category_result = mysqli_query($connect, $category_query);
+
+      ?>
       <form method="post" class="arrange">
         <fieldset>
           <legend>Sign up TODAY</legend>
@@ -90,20 +90,19 @@ include('admin/includes/functions.php');
 
       </form>
     </section>
-    <div>
+    <div id=work>
       <?php
 
-      $query_social = 'SELECT * FROM social_media';
-      $result_social = mysqli_query($connect, $query_social);
+      $query = 'SELECT * FROM social_media';
+      $result = mysqli_query($connect, $query);
 
       ?>
       <h2>Get update of our Work</h2>
 
-      <div>
-        <?php while ($record_social = mysqli_fetch_assoc($result_social)): ?>
-          <a href="<?php echo $record_social['url']; ?>"><img src="
-            <?php echo $record['logo']; ?>
-          " alt="i am image" width="100" height="100"></a>
+      <div class="image">
+        <?php while ($record = mysqli_fetch_assoc($result)): ?>
+          <a href="<?php echo $record['url']; ?>"><img src="<?php echo $record['image']; ?>" alt="i am image" width="50"
+              height="50"></a>
         <?php endwhile; ?>
       </div>
     </div>

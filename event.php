@@ -22,7 +22,7 @@ include('admin/includes/functions.php');
 </head>
 
 <body>
-  <header>
+  <header class="arrange">
     <h1>BashBliss</h1>
     <nav>
       <ul>
@@ -39,86 +39,85 @@ include('admin/includes/functions.php');
     </nav>
   </header>
   <main>
-    <main>
-      <?php
+    <?php
 
-      if (!isset($_GET['name'])) {
+    if (!isset($_GET['name'])) {
 
-        $query = 'SELECT * FROM event_details';
-        $result = mysqli_query($connect, $query);
+      $query = 'SELECT * FROM event_details';
+      $result = mysqli_query($connect, $query);
 
-        if (mysqli_num_rows($result) == 0) {
+      if (mysqli_num_rows($result) == 0) {
 
-          // if database empty
-          echo "No events found";
-        } else {
+        // if database empty
+        echo "No events found";
+      } else {
 
-          // If the query is successful and return at least one result, display the event info
-          ?>
+        // If the query is successful and return at least one result, display the event info
+        ?>
+        <div id="event_container">
           <h2>Events</h2>
           <?php while ($record = mysqli_fetch_assoc($result)): ?>
             <div id="event_detail">
-              <h3>
-                <?php echo $record['name'] ?>
-              </h3>
-              <video width="400" height="200" autoplay>
-                <source src="<?php echo $record['video']; ?>" type="video/webm">I am video
-              </video>
-              <div id="event">
-                <p>
-                  <?php echo $record['details'] ?>
-                </p>
-                <img src="<?php echo $record['image']; ?>" alt="i am image" width="300" height="350">
-              </div>
-            </div>
-          <?php endwhile; ?>
-          <?php
-        }
-      } else {
 
-        // This is for if user click on any image on event it take name ?name= and pass in to sql query
-        $eventName = $_GET['name'];
-        $filter_query = "SELECT * FROM event_details WHERE category_id=( SELECT category_id FROM categories WHERE name = '$eventName')";
-        $result = mysqli_query($connect, $filter_query);
-
-        if (mysqli_num_rows($result) == 0) {
-
-          // If the query returns no results
-          // display a message indicating that particular name no any event in event_details
-          echo "Event not found";
-
-        } else {
-
-          // If the query is successful and returns at least one result, display the event details
-          while ($record = mysqli_fetch_assoc($result)) {
-
-            ?>
-            <h3>
-              <?php echo $record['name'] ?>
-            </h3>
-            <div id="event_container">
               <img src="<?php echo $record['image']; ?>" alt="i am image" width="300" height="350">
-              <div id="detail">
-                <video width="100%" height="200" autoplay>
+              <div id="event">
+                <video width="400" height="200" autoplay>
                   <source src="<?php echo $record['video']; ?>" type="video/webm">I am video
                 </video>
                 <p>
                   <?php echo $record['details'] ?>
                 </p>
-
               </div>
             </div>
-            <?php
-          }
-        }
+          <?php endwhile; ?>
+        </div>
+        <?php
       }
-      ?>
-    </main>
-    <footer>
-      <p>manaliPatel, March 2023</p>
-    </footer>
-    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
-    <script src="./index.js" async defer></script>
+    } else {
+
+      // This is for if user click on any image on event it take name ?name= and pass in to sql query
+      $eventName = $_GET['name'];
+      $filter_query = "SELECT * FROM event_details WHERE category_id=( SELECT category_id FROM categories WHERE name = '$eventName')";
+      $result = mysqli_query($connect, $filter_query);
+
+      if (mysqli_num_rows($result) == 0) {
+
+        // If the query returns no results
+        // display a message indicating that particular name no any event in event_details
+        echo "Event not found";
+
+      } else {
+
+        // If the query is successful and returns at least one result, display the event details
+    
+        ?>
+        <div id="event_container">
+          <h2>Events</h2>
+          <?php while ($record = mysqli_fetch_assoc($result)): ?>
+            <div id="event_detail">
+
+              <img src="<?php echo $record['image']; ?>" alt="i am image" width="300" height="350">
+              <div id="event">
+                <video width="400" height="200" autoplay>
+                  <source src="<?php echo $record['video']; ?>" type="video/webm">I am video
+                </video>
+                <p>
+                  <?php echo $record['details'] ?>
+                </p>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+        <?php
+      }
+    }
+    ?>
+  </main>
+  <footer>
+    <p>manaliPatel, March 2023</p>
+  </footer>
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+  <script src="./index.js" async defer></script>
 </body>
 
 </html>

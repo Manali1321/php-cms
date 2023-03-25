@@ -26,7 +26,6 @@ nav li {
 nav a {
   font-size: 24px;
   font-weight: 500;
-  text-decoration: none;
 }
 
 nav a:hover {
@@ -40,7 +39,6 @@ nav li:last-child {
 nav {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 header {
@@ -53,19 +51,13 @@ header {
 #category {
   display: flex;
   flex-wrap: wrap;
-}
-
-#category-item {
-  width: 300px;
-  margin: 10px;
-  position: relative;
+  padding: 3rem 0;
+  justify-content: space-evenly;
 }
 
 #category-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: filter 0.3s ease-in-out;
+  min-width: 370px;
+  height: 370px;
 }
 
 #category-item:hover img {
@@ -91,18 +83,15 @@ header {
 main {
   font-size: 22px;
 }
-section,
-header {
+
+.arrange {
   padding: 2rem 15rem;
 }
-.arrange {
-  padding-top: 2rem;
-}
 .intro {
-  padding: 10rem 30rem;
   word-spacing: 10px;
   letter-spacing: 3px;
   line-height: 40px;
+  margin: 5rem 0;
 }
 .intro p {
   box-shadow: 7px 7px 15px rgb(104, 119, 89);
@@ -138,73 +127,133 @@ footer {
   padding: 7px;
   font-weight: 600;
 }
-footer p {
-  margin: 0 !important;
-}
 /* **************** About page ****************** */
 .field {
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  width: 50%;
+  padding: 5px 10px;
+  margin: 8px 5px;
   border-radius: 4px;
   font-size: 22px;
-  font-weight: 500;
-  border: rgb(111 63 96) 5px solid;
-  border-radius: 5px;
+  border: rgb(111 63 96) 3px solid;
+  border-radius: 3px;
 }
 fieldset {
   padding: 30px;
+  border: 4px solid;
 }
-/* ******************** Event Page ************************** */
-#event_container {
+legend {
+  color: rgb(111 63 96);
+}
+
+#work {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
+  gap: 30px;
+  padding: 50px 0;
 }
 
-#event_container h3 {
-  font-size: 28px;
+/* ******************** Event Page ************************** */
+/* CSS */
+#event_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 5rem 15rem;
+}
+
+#event_detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 7px 7px 15px rgb(104, 119, 89);
+  padding: 60px;
+}
+
+#event_detail img {
+  display: block;
+  margin-bottom: 30px;
+  /* width: 40%; */
+  height: auto;
+}
+
+#event {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-align: center;
 }
-
-#event_container img {
-  width: 300px;
-  height: 350px;
-  float: left;
-  margin-right: 20px;
+#event p {
+  padding: 0 90px;
+  font-size: 20px;
 }
 
-#detail {
-  flex: 1;
-  margin-top: 20px;
-}
-
-#detail p {
-  font-size: 16px;
-  text-align: justify;
-}
-
-#detail video {
-  width: 100%;
-  height: auto;
+#event video {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
+  margin-bottom: 20px;
+  height: 200px;
+  width: 300px;
 }
 
 /* *******************  Media ********************** */
-@media screen and (max-width: 768px) {
-  #category {
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
+@media screen and (max-width: 1600px) {
+  #event_container {
+    padding: 5rem 7rem;
   }
+}
 
-  #category img {
-    height: auto;
+@media screen and (max-width: 1455px) {
+  #event_detail {
+    padding: 30px;
+  }
+  #event p {
+    padding: 0 70px;
+  }
+  .arrange {
+    padding: 2rem 12rem;
+  }
+}
+@media screen and (max-width: 1250px) {
+  #event p {
+    padding: 0 30px;
+    font-size: 18px;
+  }
+  .arrange {
+    padding: 2rem 10rem;
+  }
+}
+@media screen and (max-width: 1150px) {
+  #event {
+    flex-direction: column;
+  }
+  .arrange {
+    padding: 2rem 7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .intro {
+    padding: 5rem 7rem;
+    word-spacing: 6px;
+    letter-spacing: 2px;
+    line-height: 35px;
+  }
+  .arrange {
+    padding: 2rem 5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .intro {
+    padding: 3rem 5rem;
+    word-spacing: 6px;
+    letter-spacing: 1px;
+    line-height: 30px;
   }
 }
